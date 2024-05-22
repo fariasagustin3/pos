@@ -2,12 +2,12 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import ProductImage from '../assets/image.png'
 
-const ProductItem = () => {
+const ProductItem = ({ product }) => {
   return (
     <View style={styles.container}>
-      <Image source={ProductImage} style={styles.productImage} />
-      <Text style={styles.title}>Titulo de prueba</Text>
-      <Text style={styles.price}>$1200</Text>
+      <Image source={{ uri: product.image }} style={styles.productImage} />
+      <Text style={styles.title}>{product.title}</Text>
+      <Text style={styles.price}>${product.price}</Text>
     </View>
   )
 }
@@ -27,6 +27,8 @@ const styles = StyleSheet.create({
   productImage: {
     width: "100%",
     height: 150,
+    borderRadius: 15,
+    objectFit: "cover"
   },
   title: {
     color: "black",

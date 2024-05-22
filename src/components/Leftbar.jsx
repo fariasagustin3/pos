@@ -2,23 +2,25 @@ import { Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-nati
 import React, { useEffect, useState } from 'react'
 import { leftbarButtons, leftbarIndexButtons } from '../data'
 import { useRoute } from '@react-navigation/native';
+import { useStore } from '../store';
 
 const heightScreen = Dimensions.get("window").height;
 
 const Leftbar = ({ navigation }) => {
   const [selected, setSelected] = useState("TablesScreen");
   const [iconSelected, setIconSelected] = useState("Coffee")
+  const changeCategory = useStore((state) => state.changeCategory)
 
   const route = useRoute()
 
   const changeSelected = (screen, name) => {
-    console.log(screen)
     setSelected(name)
     navigation.navigate(screen);
   }
 
   const changeButtonSelected = (buttonTitle) => {
-    setIconSelected(buttonTitle)
+    setIconSelected(buttonTitle);
+    changeCategory(buttonTitle)
   }
 
   useEffect(() => {

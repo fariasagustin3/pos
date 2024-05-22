@@ -1,9 +1,10 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../components/Layout'
 import ProductList from '../components/ProductList'
 
 const HomeScreen = ({ navigation }) => {
+
   return (
     <Layout navigation={navigation}>
       <ScrollView style={{ flex: 1 }}>

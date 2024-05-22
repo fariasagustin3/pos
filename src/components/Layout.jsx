@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View, Dimensions } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import Rightbar from './Rightbar';
 import Leftbar from './Leftbar';
 
 const heightScreen = Dimensions.get("window").height;
 const widthScreen = Dimensions.get("window").width;
 
-const Layout = ({ children, navigation }) => {
+const Layout = ({ children, navigation, sendCategory }) => {
   return (
     <View style={styles.container}>
       <View style={styles.barsContainer}>
