@@ -2,11 +2,14 @@ import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import React, { useState } from 'react'
 import Rightbar from './Rightbar';
 import Leftbar from './Leftbar';
+import { useRoute } from '@react-navigation/native';
 
 const heightScreen = Dimensions.get("window").height;
 const widthScreen = Dimensions.get("window").width;
 
-const Layout = ({ children, navigation, sendCategory }) => {
+const Layout = ({ children, navigation }) => {
+  const route = useRoute()
+
   return (
     <View style={styles.container}>
       <View style={styles.barsContainer}>
@@ -14,7 +17,9 @@ const Layout = ({ children, navigation, sendCategory }) => {
         <View style={styles.childrenContainer}>
           {children}
         </View>
-        <Rightbar />
+        {route.name === "HomeScreen" && (
+          <Rightbar />
+        )}
       </View>
     </View>
   )

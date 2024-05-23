@@ -1,14 +1,18 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import ProductImage from '../assets/image.png'
+import { useStore } from '../store'
 
 const ProductItem = ({ product }) => {
+  const addToCart = useStore(state => state.addToCart)
+
   return (
-    <View style={styles.container}>
-      <Image source={{ uri: product.image }} style={styles.productImage} />
-      <Text style={styles.title}>{product.title}</Text>
-      <Text style={styles.price}>${product.price}</Text>
-    </View>
+    <Pressable onPress={() => addToCart(product)}>
+      <View style={styles.container}>
+        <Image source={{ uri: product.image }} style={styles.productImage} />
+        <Text style={styles.title}>{product.title}</Text>
+        <Text style={styles.price}>${product.price}</Text>
+      </View>
+    </Pressable>
   )
 }
 
