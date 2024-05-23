@@ -1,19 +1,19 @@
-# Bienvenidos a la Aplicación Point of Sell
+# Welcome to the Point of Sale Application
 
-## Descripción del Proyecto
+## Project Description
 
-Esta es una aplicación de tipo point of sell (POS) desarrollada en React Native, diseñada específicamente para restaurantes y bares. La aplicación permite tomar pedidos de manera eficiente y organizada, facilitando la gestión de las mesas y los productos solicitados. A continuación, se detallan las funcionalidades principales:
+This is a point of sale (POS) application developed in React Native, specifically designed for restaurants and bars. The application allows for efficient and organized order taking, facilitating the management of tables and ordered products. Below are the main features:
 
-- **Selección de Mesa:** Permite seleccionar la mesa para la cual se tomará el pedido.
-- **Carrito de Compras:** Los productos se pueden agregar a un carrito de compras, donde se mostrará la cantidad de cada producto y el precio total de cada uno (precio unitario multiplicado por la cantidad).
-- **Precio Total:** En la parte inferior del carrito de compras, se muestra el precio total de todos los productos seleccionados.
-- **Crear Orden:** Incluye un botón que permite crear una nueva orden basada en los productos seleccionados en el carrito.
+- **Table Selection:** Allows selecting the table for which the order will be taken.
+- **Shopping Cart:** Products can be added to a shopping cart, where the quantity of each product and the total price of each product (unit price multiplied by quantity) will be displayed.
+- **Total Price:** At the bottom of the shopping cart, the total price of all selected products is shown.
+- **Create Order:** Includes a button to create a new order based on the products selected in the cart.
 
-Esta aplicación está diseñada para mejorar la eficiencia del servicio en restaurantes y bares, proporcionando una interfaz intuitiva y fácil de usar para los empleados.
+This application is designed to improve service efficiency in restaurants and bars, providing an intuitive and easy-to-use interface for employees.
 
-## Capturas de la Aplicación
+## Application Screenshots
 
-A continuación se muestran algunas capturas de pantalla de la aplicación para dar una idea más clara de su funcionamiento y diseño:
+Below are some screenshots of the application to give a clearer idea of its functionality and design:
 
 ![pos-tables-screen](https://github.com/fariasagustin3/pos/assets/96506530/e3d609de-633f-405f-a9b2-6cabdd7b17be)
 ![pos-selected-tables](https://github.com/fariasagustin3/pos/assets/96506530/8a9e8712-29f3-4ca8-9715-87340df5bb84)
