@@ -20,7 +20,10 @@ const TableItem = ({ table, navigation }) => {
               removeTable(table.id)
             }
           },
-          { text: "No", style: "cancel" },
+          { text: "No", onPress: () => {
+            navigation.navigate("HomeScreen")
+            selectTable(table)
+          } },
         ]
       )
     } else {
