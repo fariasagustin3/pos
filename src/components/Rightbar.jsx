@@ -7,18 +7,28 @@ import Trash from '../assets/delete-item.png'
 
 const Rightbar = () => {
   const cart = useStore(state => state.cart);
-  const tables = useStore(state => state.tables);
+  // const tables = useStore(state => state.tables);
   const removeFromCart = useStore(state => state.removeFromCart);
   const incrementQuantity = useStore(state => state.incrementQuantity);
   const selectedTable = useStore(state => state.selectedTable);
+  const total = useStore(state => state.total);
+  const modifyTotal = useStore(state => state.modifyTotal);
+
+  console.log(cart)
+
+  const totalCart = () => {
+    let total = 0;
+    for (let i = 0; i < cart.length; i++) {
+      total += Number(cart[i].price)
+    }
+
+    return total.toFixed(2);
+  }
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{selectedTable.title} Order</Text>
       <ScrollView style={styles.scrollView}>
-        {/* <View style={{ height: 300, width: "100%", backgroundColor: "red" }}> */}
-
-
         {cart?.map(product => (
           <View key={product.id} style={styles.productContainer}>
             <View style={styles.productContentContainer}>
@@ -44,12 +54,11 @@ const Rightbar = () => {
             </View>
           </View>
         ))}
-        {/* </View> */}
       </ScrollView>
       <View style={styles.checkoutContainer}>
         <View style={styles.totalContainer}>
           <Text style={styles.totalText}>TOTAL</Text>
-          <Text style={styles.total}>$2000</Text>
+          <Text style={styles.total}>${totalCart()}</Text>
         </View>
         <Pressable style={styles.addOrder}>
           <Text style={styles.addOrderButton}>ADD ORDER</Text>

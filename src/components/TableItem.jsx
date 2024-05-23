@@ -30,10 +30,6 @@ const TableItem = ({ table, navigation }) => {
     }
   }
 
-  useEffect(() => {
-    // tables.map(occupiedTable => occupiedTable.id === table.id)
-  }, [tables])
-
   return (
     <View style={tables.includes(table) ? styles.containerSelected : styles.container}>
       <Pressable onPress={() => addTableToStore(table)} style={styles.imageContainer}>

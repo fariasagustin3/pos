@@ -4,10 +4,11 @@ import { useStore } from '../store'
 
 const ProductItem = ({ product }) => {
   const addToCart = useStore(state => state.addToCart)
+  const cart = useStore(state => state.cart)
 
   return (
-    <Pressable onPress={() => addToCart(product)}>
-      <View style={styles.container}>
+    <Pressable disabled={cart.some(n => n.id === product.id)} onPress={() => addToCart(product)}>
+      <View style={cart.some(n => n.id === product.id) ? styles.selectedContainer : styles.container}>
         <Image source={{ uri: product.image }} style={styles.productImage} />
         <Text style={styles.title}>{product.title}</Text>
         <Text style={styles.price}>${product.price}</Text>
@@ -27,6 +28,16 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     gap: 10
+  },
+  selectedContainer: {
+    width: 200,
+    height: 230,
+    borderRadius: 15,
+    backgroundColor: "#F8F9FD",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 10,
+    opacity: 0.5
   },
   productImage: {
     width: "100%",

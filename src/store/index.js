@@ -7,6 +7,7 @@ export const useStore = create((set) => ({
   tables: [],
   selectedTable: {},
   orders: [],
+  total: 0,
 
   // methods
   changeCategory: (category) => set(() => ({ category: category })),
@@ -55,6 +56,10 @@ export const useStore = create((set) => ({
 
   removeOrder: (orderId) => set(state => ({
     orders: state.orders.filter(order => orderId !== order.id)
+  })),
+
+  modifyTotal: (total) => set(() => ({
+    total: total
   })),
 
 }))
