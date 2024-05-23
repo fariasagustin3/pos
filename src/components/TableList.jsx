@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import TableItem from './TableItem'
 import { tables } from '../data'
 
-const TableList = ({navigation}) => {
+const TableList = ({ navigation }) => {
+
+
   return (
     <View style={styles.container}>
       {tables?.map((table) => (

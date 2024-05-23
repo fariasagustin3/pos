@@ -4,19 +4,17 @@ import { useStore } from '../store/index';
 import MinusButton from '../assets/minus-button.png'
 import PlusButton from '../assets/plus-button.png'
 import Trash from '../assets/delete-item.png'
-import Drink from '../assets/drink-example.jpg'
-import { AiOutlineBgColors } from 'react-icons/ai';
-
-const heightScreen = Dimensions.get("window").height;
 
 const Rightbar = () => {
   const cart = useStore(state => state.cart);
+  const tables = useStore(state => state.tables);
   const removeFromCart = useStore(state => state.removeFromCart);
   const incrementQuantity = useStore(state => state.incrementQuantity);
+  const selectedTable = useStore(state => state.selectedTable);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Order Details</Text>
+      <Text style={styles.title}>{selectedTable.title} Order</Text>
       <ScrollView style={styles.scrollView}>
         {/* <View style={{ height: 300, width: "100%", backgroundColor: "red" }}> */}
 
@@ -53,8 +51,8 @@ const Rightbar = () => {
           <Text style={styles.totalText}>TOTAL</Text>
           <Text style={styles.total}>$2000</Text>
         </View>
-        <Pressable style={styles.payButton}>
-          <Text style={styles.payButtonText}>Pay Now</Text>
+        <Pressable style={styles.addOrder}>
+          <Text style={styles.addOrderButton}>ADD ORDER</Text>
         </Pressable>
       </View>
     </View>
@@ -75,7 +73,8 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: "black",
     paddingLeft: 10,
-    fontWeight: "800"
+    fontWeight: "800",
+    textAlign: "center",
   },
   scrollView: {
     flex: 4,
@@ -155,7 +154,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     justifyContent: "center",
-    gap: 10
+    gap: 100
   },
   totalText: {
     fontWeight: "800",
@@ -167,12 +166,12 @@ const styles = StyleSheet.create({
     color: "#FF5C00",
     fontSize: 20,
   },
-  payButton: {
+  addOrder: {
     backgroundColor: "#FF5C00",
     paddingVertical: 10,
     borderRadius: 100,
   },
-  payButtonText: {
+  addOrderButton: {
     textAlign: "center",
     fontWeight: "500",
     color: "white"
